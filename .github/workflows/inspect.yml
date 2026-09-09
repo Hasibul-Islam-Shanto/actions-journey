@@ -1,0 +1,17 @@
+name: Inspect Repo
+on:
+  push:
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Prinst System and Repos details
+        run: |
+          uname -a
+          ls -la
+
+      - name: Count Files
+        run: find . -type f | wc -l
