@@ -1,0 +1,10 @@
+name: Label for Every Run
+on:
+  push:
+jobs:
+  lablerun:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Build label
+        run: echo "${{ format('build-{0}-{1}', github.run_number, github.ref_name) }}"
+
