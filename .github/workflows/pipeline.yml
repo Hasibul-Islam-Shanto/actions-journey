@@ -1,0 +1,24 @@
+name: Three stage build
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Compute version
+        id: version
+        run: echo "version=1.0${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+  test:   
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: echo "Tests Passed"
+  deploy: 
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Version
+        run: echo "Deploying version ${{ needs.build.outputs.version }}"
