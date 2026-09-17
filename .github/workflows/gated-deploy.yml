@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Run Tests
         run: echo "Testing the whole application"
-      - name: Deploy App
+      - name: Deploy
         if: github.ref == 'refs/heads/main'
         run: echo "Deploying the application"
