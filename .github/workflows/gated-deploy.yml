@@ -1,0 +1,12 @@
+name: Gated Deploy for Main Branch
+on:
+  push:
+jobs:
+  gated-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Tests
+        run: echo "Testing the whole application"
+      - name: Deploy App
+        if: github.ref == 'refs/heads/main'
+        run: echo "Deploying the application"
