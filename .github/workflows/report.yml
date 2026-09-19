@@ -1,0 +1,17 @@
+name: Learn Artifacts
+on:
+  push:
+jobs:
+  artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create build report
+        run: |
+          echo "Build date: $(date)" > report.txt
+      - name: Upload build report
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report
+          path: report.txt
+          retention-days: 5
