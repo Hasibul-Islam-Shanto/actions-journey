@@ -1,0 +1,12 @@
+name: Annouce app name
+description: Ladies and getleman annoucing the application name here
+inputs:
+  app-name:
+    description: This will contain the application name
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Annouce name
+      shell: bash
+      run: echo "The application name is - ${{ inputs.app-name }}"
