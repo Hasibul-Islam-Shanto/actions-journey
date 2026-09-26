@@ -6,3 +6,4 @@ runs:
     - run: echo "Branch name - $GITHUB_REF_NAME"
       shell: bash
     - run: echo "Commit hash - $GITHUB_SHA"
+      shell: bash
