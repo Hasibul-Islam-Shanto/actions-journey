@@ -1,0 +1,16 @@
+name: Secure workflow
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  secure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v4.1.7
+
+      - name: List of the repository's files
+        run: ls -la
